@@ -1,10 +1,14 @@
 import time
 from pages.BrowserNavPage import BrowserNavPage
 from utilities.readProperties import ReadConfig
+from utilities.customLogger import LogGen
 class Test_Browser:
     baseURL=ReadConfig.getIniValueOf("baseURL")
     word=ReadConfig.getIniValueOf("word")
+    logger=LogGen.loggen()
     def test_Sample(self, setup):
+        self.logger.info("***Test_Browser***")
+        self.logger.info("Verify search option is displayed")
         self.driver=setup
         self.driver.get(self.baseURL)
         #time.sleep(2)
@@ -12,10 +16,10 @@ class Test_Browser:
         self.browserNavPage.searchWord(self.word)
         print(self.browserNavPage.getElementDisplayed())
         if self.browserNavPage.getElementDisplayed():
-            print("Option is displayed")
+            self.logger.info("Option is displayed")
             assert True
         else:
-            print("Option is not displayed")
+            self.logger.error("Option is not displayed")
             self.driver.save_screenshot("C:\\Users\\User\\IdeaProjects\\AutomationPythonProj\\screenshots\\"+"test_Sample.png")
             assert False
         self.driver.close()
