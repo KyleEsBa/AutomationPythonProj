@@ -2,6 +2,7 @@ import time
 from pages.BrowserNavPage import BrowserNavPage
 from utilities.readProperties import ReadConfig
 from utilities.customLogger import LogGen
+from utilities.ExcelUtils import ExcelUtils
 class Test_Browser:
     baseURL=ReadConfig.getIniValueOf("baseURL")
     word=ReadConfig.getIniValueOf("word")
@@ -12,6 +13,7 @@ class Test_Browser:
         self.driver=setup
         self.driver.get(self.baseURL)
         #time.sleep(2)
+        print(ExcelUtils.getRowCount())
         self.browserNavPage=BrowserNavPage(self.driver)
         self.browserNavPage.searchWord(self.word)
         print(self.browserNavPage.getElementDisplayed())

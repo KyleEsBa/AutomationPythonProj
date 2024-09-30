@@ -11,3 +11,8 @@ def setup():
     else:
         driver=webdriver.Ie()
     return driver
+
+def reportsConfigure(config):
+    config._metadata['Project name']='Company project'
+    config._metadata['Module Name']='Project module'
+    config._metadata['Team']='Automation team'
