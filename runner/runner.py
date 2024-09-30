@@ -1,14 +1,28 @@
 import pytest
 import os
+from datetime import datetime
 
 class Runner:
 
     @staticmethod
-    def run_tests_with_mark(mark: str, testPathTest: str = ""):
+    def run_tests_with_mark(mark: str, testPathTest: str = "", reportDir: str = "reports"):
         if not os.path.exists(testPathTest):
             raise ValueError(f"Test path '{testPathTest}' does not exist.")
 
-        pytest_args = [testPathTest, "-v", f"-m {mark}"]
+        # Create report directory if it doesn't exist
+        if not os.path.exists(reportDir):
+            os.makedirs(reportDir)
+
+        timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+        reportFile = os.path.join("C:\\Users\\User\\IdeaProjects\\AutomationPythonProj\\reports", f"report_{timestamp}.html")
+
+        pytest_args = [
+            testPathTest,
+            "-v",
+            f"-m {mark}",
+            f"--html={reportFile}",  # HTML report path
+            "--self-contained-html"   # Embed CSS and JS into the HTML report
+        ]
         pytest.main(pytest_args)
 
 if __name__ == "__main__":
