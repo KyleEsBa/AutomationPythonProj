@@ -4,22 +4,30 @@ class ExcelUtils:
     file="C:\\Users\\User\\IdeaProjects\\AutomationPythonProj\\testData\\TestData.xlsx"
     sheetName="Sheet1"
 
-    def openFile(self):
-        workbook=openpyxl.load_workbook(self.file)
-        sheet=workbook[self.sheetName]
+    @staticmethod
+    def openFile():
+        workbook=openpyxl.load_workbook(ExcelUtils.file)
+        sheet=workbook[ExcelUtils.sheetName]
         return sheet
 
-    def getRowCount(self):
-        sheet=self.openFile()
+    @staticmethod
+    def getRowCount():
+        sheet=ExcelUtils.openFile()
         return sheet.max_row
-    def getColumnCount(self):
-        sheet=self.openFile()
+
+    @staticmethod
+    def getColumnCount():
+        sheet=ExcelUtils.openFile()
         return sheet.max_column
-    def readData(self, rownum, columno):
-        sheet=self.openFile()
+
+    @staticmethod
+    def readData(rownum, columno):
+        sheet=ExcelUtils.openFile()
         return sheet.cell(row=rownum, column=columno).value
-    def writeData(self, rownum, columno, data):
-        workbook=openpyxl.load_workbook(self.file)
-        sheet=workbook[self.sheetName]
+
+    @staticmethod
+    def writeData(rownum, columno, data):
+        workbook=openpyxl.load_workbook(ExcelUtils.file)
+        sheet=workbook[ExcelUtils.sheetName]
         sheet.cell(row=rownum, column=columno).value=data
-        workbook.save(self.file)
+        workbook.save(ExcelUtils.file)

@@ -5,7 +5,6 @@ from utilities.customLogger import LogGen
 from utilities.ExcelUtils import ExcelUtils
 class Test_Browser:
     baseURL=ReadConfig.getIniValueOf("baseURL")
-    word=ReadConfig.getIniValueOf("word")
     logger=LogGen.loggen()
     def test_Sample(self, setup):
         self.logger.info("***Test_Browser***")
@@ -13,9 +12,8 @@ class Test_Browser:
         self.driver=setup
         self.driver.get(self.baseURL)
         #time.sleep(2)
-        print(ExcelUtils.getRowCount())
         self.browserNavPage=BrowserNavPage(self.driver)
-        self.browserNavPage.searchWord(self.word)
+        self.browserNavPage.searchWord(ExcelUtils.readData(2,1))
         print(self.browserNavPage.getElementDisplayed())
         if self.browserNavPage.getElementDisplayed():
             self.logger.info("Option is displayed")
