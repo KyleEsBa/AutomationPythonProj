@@ -4,11 +4,11 @@ import os
 class Runner:
 
     @staticmethod
-    def run_tests_with_mark(mark: str, test_path: str = ""):
-        if not os.path.exists(test_path):
-            raise ValueError(f"Test path '{test_path}' does not exist.")
+    def run_tests_with_mark(mark: str, testPathTest: str = ""):
+        if not os.path.exists(testPathTest):
+            raise ValueError(f"Test path '{testPathTest}' does not exist.")
 
-        pytest_args = [test_path, "-v", f"-m {mark}"]
+        pytest_args = [testPathTest, "-v", f"-m {mark}"]
         pytest.main(pytest_args)
 
 if __name__ == "__main__":
