@@ -24,5 +24,5 @@ class Test_Browser:
             assert True
         else:
             self.logger.error("Option is not displayed")
-            driver.save_screenshot("C:\\Users\\User\\IdeaProjects\\AutomationPythonProj\\test\\screenshots\\"+"test_Sample.png")
+            driver.save_screenshot("../../test/screenshots/test_Sample.png")
             assert False

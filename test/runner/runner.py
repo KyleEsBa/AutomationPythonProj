@@ -6,7 +6,7 @@ class Runner:
 
     @staticmethod
     def run_tests_with_mark(mark: str):
-        testPathTest="../../test/testCases"
+        testPathTest="../../test/step_definition"
         reportDir = "../../test/reports"
         # Create report directory if it doesn't exist
         if not os.path.exists(reportDir):
