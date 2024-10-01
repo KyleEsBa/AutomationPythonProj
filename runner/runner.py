@@ -5,10 +5,9 @@ from datetime import datetime
 class Runner:
 
     @staticmethod
-    def run_tests_with_mark(mark: str, testPathTest: str = "", reportDir: str = "reports"):
-        if not os.path.exists(testPathTest):
-            raise ValueError(f"Test path '{testPathTest}' does not exist.")
-
+    def run_tests_with_mark(mark: str):
+        testPathTest="C:\\Users\\User\\IdeaProjects\\AutomationPythonProj\\testCases"
+        reportDir = "reports"
         # Create report directory if it doesn't exist
         if not os.path.exists(reportDir):
             os.makedirs(reportDir)
@@ -27,4 +26,4 @@ class Runner:
 
 if __name__ == "__main__":
     # Running by mark
-    Runner.run_tests_with_mark("wip", "C:\\Users\\User\\IdeaProjects\\AutomationPythonProj\\testCases")
+    Runner.run_tests_with_mark("wip")
