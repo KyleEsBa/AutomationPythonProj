@@ -1,7 +1,5 @@
 import pytest
-from selenium import webdriver
-from utilities.readProperties import ReadConfig
-from utilities.Driver import Driver
+from test.utilities.Driver import Driver
 @pytest.fixture(scope="session")
 def driver():
     Driver.get_instance()

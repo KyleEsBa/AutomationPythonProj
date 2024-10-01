@@ -1,11 +1,6 @@
-import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.firefox.service import Service as FirefoxService
-from selenium.webdriver.firefox.options import Options as FirefoxOptions
 
-from utilities.readProperties import ReadConfig
+from test.utilities.readProperties import ReadConfig
 
 
 class Driver:

@@ -1,12 +1,11 @@
-import time
-
 import pytest
 
-from pages.BrowserNavPage import BrowserNavPage
-from utilities.readProperties import ReadConfig
-from utilities.customLogger import LogGen
-from utilities.ExcelUtils import ExcelUtils
-from utilities.Driver import Driver
+from test.pages.BrowserNavPage import BrowserNavPage
+from test.utilities.readProperties import ReadConfig
+from test.utilities.customLogger import LogGen
+from test.utilities.ExcelUtils import ExcelUtils
+
+
 @pytest.mark.regression
 class Test_Browser:
     baseURL=ReadConfig.getIniValueOf("baseURL")
@@ -25,5 +24,5 @@ class Test_Browser:
             assert True
         else:
             self.logger.error("Option is not displayed")
-            driver.save_screenshot("C:\\Users\\User\\IdeaProjects\\AutomationPythonProj\\screenshots\\"+"test_Sample.png")
+            driver.save_screenshot("C:\\Users\\User\\IdeaProjects\\AutomationPythonProj\\test\\screenshots\\"+"test_Sample.png")
             assert False

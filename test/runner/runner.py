@@ -6,14 +6,14 @@ class Runner:
 
     @staticmethod
     def run_tests_with_mark(mark: str):
-        testPathTest="C:\\Users\\User\\IdeaProjects\\AutomationPythonProj\\testCases"
-        reportDir = "reports"
+        testPathTest="../../test/testCases"
+        reportDir = "../../test/reports"
         # Create report directory if it doesn't exist
         if not os.path.exists(reportDir):
             os.makedirs(reportDir)
 
         timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-        reportFile = os.path.join("C:\\Users\\User\\IdeaProjects\\AutomationPythonProj\\reports", f"report_{timestamp}.html")
+        reportFile = os.path.join(reportDir, f"report_{timestamp}.html")
 
         pytest_args = [
             testPathTest,

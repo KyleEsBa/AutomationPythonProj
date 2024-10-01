@@ -1,7 +1,7 @@
 import configparser
 
 config=configparser.RawConfigParser()
-config.read("C:\\Users\\User\\IdeaProjects\\AutomationPythonProj\\configurations\\config.ini")
+config.read("../configurations/config.ini")
 
 class ReadConfig:
     @staticmethod
