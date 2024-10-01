@@ -1,7 +1,7 @@
 import openpyxl
 
 class ExcelUtils:
-    file= "../testData/TestData.xlsx"
+    file= "../../resources/testData/TestData.xlsx"
     sheetName="Sheet1"
 
     @staticmethod
