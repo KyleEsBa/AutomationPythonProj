@@ -19,13 +19,11 @@ Implementation of automated test scripts
 ```
 
 ## Stack of tools
-***
 - Selenium
 - Pytest
 - Openpyxl
 
 ## Design patterns
-***
 - Singleton
 - Page Object Model
 - DDT (Data Driven Testing)
